@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h3 class="mb-4">Lista de Libros</h3>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID Libro</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Género</th>
+        <th>Código Libro</th>
+        <th>ISBN</th>
+        <th>Estado</th>
+        <th>Acciones</th> <!-- Nueva columna de acciones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of libros">
+        <td>{{ libro.id_libros }}</td>
+        <td>{{ libro.titulo }}</td>
+        <td>{{ libro.autor }}</td>
+        <td>{{ libro.genero_libro }}</td>
+        <td>{{ libro.codigo_libro }}</td>
+        <td>{{ libro.ISBN }}</td>
+        <td>{{ libro.estado === 1 ? 'Activo' : 'Inactivo' }}</td>
+        <td>
+          <!-- Botón dentro de la nueva columna que llama a la función editarLibro con el id_libros -->
+          <button class="btn btn-primary" (click)="accion(libro.id_libros)">Acción</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

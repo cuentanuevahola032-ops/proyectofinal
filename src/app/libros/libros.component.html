@@ -1,0 +1,92 @@
+<form (ngSubmit)="guardarLibro()" #libroForm="ngForm" class="row g-4 p-4 border rounded shadow-sm bg-light">
+
+  <!-- Título -->
+  <div class="col-md-6">
+    <label for="titulo" class="form-label fw-semibold">Título</label>
+    <input
+      type="text"
+      id="titulo"
+      name="titulo"
+      [(ngModel)]="libro.titulo"
+      class="form-control"
+      placeholder="Ej: Cien Años de Soledad"
+      required
+    />
+  </div>
+
+  <!-- Autor -->
+  <div class="col-md-6">
+    <label for="autor" class="form-label fw-semibold">Autor</label>
+    <input
+      type="text"
+      id="autor"
+      name="autor"
+      [(ngModel)]="libro.autor"
+      class="form-control"
+      placeholder="Ej: Gabriel García Márquez"
+      required
+    />
+  </div>
+
+  <!-- Género -->
+  <div class="col-md-6">
+    <label for="genero_libro" class="form-label fw-semibold">Género</label>
+    <input
+      type="text"
+      id="genero_libro"
+      name="genero_libro"
+      [(ngModel)]="libro.genero_libro"
+      class="form-control"
+      placeholder="Ej: Novela"
+      required
+    />
+  </div>
+
+  <!-- Código Libro -->
+  <div class="col-md-6">
+    <label for="codigo_libro" class="form-label fw-semibold">Código Libro</label>
+    <input
+      type="text"
+      id="codigo_libro"
+      name="codigo_libro"
+      [(ngModel)]="libro.codigo_libro"
+      class="form-control"
+      placeholder="Ej: COD123"
+      required
+    />
+  </div>
+
+  <!-- ISBN -->
+  <div class="col-md-6">
+    <label for="isbn" class="form-label fw-semibold">ISBN</label>
+    <input
+      type="text"
+      id="isbn"
+      name="isbn"
+      [(ngModel)]="libro.isbn"
+      class="form-control"
+      placeholder="Ej: 978-3-16-148410-0"
+      required
+    />
+  </div>
+
+  <!-- Estado (binario) -->
+  <div class="col-md-6">
+    <label for="estado" class="form-label fw-semibold">Estado</label>
+    <select
+      id="estado"
+      name="estado"
+      [(ngModel)]="libro.estado"
+      class="form-select"
+      required
+    >
+      <option [ngValue]="1">Activo (1)</option>
+      <option [ngValue]="0">Inactivo (0)</option>
+    </select>
+  </div>
+
+  <!-- Botón -->
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary w-100">Guardar Libro</button>
+  </div>
+</form>

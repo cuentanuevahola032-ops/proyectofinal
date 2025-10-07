@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h3 class="mb-4">Lista de Préstamos</h3>
+  <table class="table table-striped table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID Préstamo</th>
+        <th>Fecha Salida</th>
+        <th>Vencimiento</th>
+        <th>Cantidad Máxima</th>
+        <th>ID Usuario</th>
+        <th>Acciones</th> <!-- Nueva columna de acciones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prestamo of prestamos">
+        <td>{{ prestamo.id_prestamo }}</td>
+        <td>{{ prestamo.fecha_salida }}</td>
+        <td>{{ prestamo.vencimiento }}</td>
+        <td>{{ prestamo.cantidad_maxima }}</td>
+        <td>{{ prestamo.id_usuario }}</td>
+        <td>
+          <!-- Botón de acción que llama al método accion con el prestamo -->
+          <button class="btn btn-primary" (click)="accion(prestamo.id_usuario)">Acción</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

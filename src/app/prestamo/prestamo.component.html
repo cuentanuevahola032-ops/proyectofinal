@@ -1,0 +1,97 @@
+<form (ngSubmit)="guardarPrestamo()" #prestamoForm="ngForm" class="row g-4 p-4 border rounded shadow-sm bg-light">
+
+  <!-- Fecha de Salida -->
+  <div class="col-md-6">
+    <label for="fecha_salida" class="form-label fw-semibold">Fecha de Salida</label>
+    <input
+      type="date"
+      id="fecha_salida"
+      name="fecha_salida"
+      [(ngModel)]="prestamo.fecha_salida"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <!-- Fecha de Vencimiento -->
+  <div class="col-md-6">
+    <label for="vencimiento" class="form-label fw-semibold">Fecha de Vencimiento</label>
+    <input
+      type="date"
+      id="vencimiento"
+      name="vencimiento"
+      [(ngModel)]="prestamo.vencimiento"
+      class="form-control"
+      required
+    />
+  </div>
+
+  <!-- Cantidad Máxima -->
+  <div class="col-md-6">
+    <label for="cantidad_maxima" class="form-label fw-semibold">Cantidad Máxima</label>
+    <input
+      type="number"
+      id="cantidad_maxima"
+      name="cantidad_maxima"
+      [(ngModel)]="prestamo.cantidad_maxima"
+      class="form-control"
+      placeholder="Ej: 5"
+      required
+    />
+  </div>
+
+  <!-- Estado -->
+  <div class="col-md-6">
+    <label for="estado" class="form-label fw-semibold">Estado</label>
+    <select
+      id="estado"
+      name="estado"
+      [(ngModel)]="prestamo.estado"
+      class="form-select"
+      required
+    >
+      <option [ngValue]="1">Activo</option>
+      <option [ngValue]="0">Inactivo</option>
+    </select>
+  </div>
+
+  <!-- Usuario -->
+  <div class="col-md-6">
+    <label for="id_usuario" class="form-label fw-semibold">Usuario</label>
+    <select
+      id="id_usuario"
+      name="id_usuario"
+      [(ngModel)]="prestamo.id_usuario"
+      class="form-select"
+      required
+    >
+      <option disabled selected value="">Seleccione un usuario</option>
+      <option *ngFor="let item of Usuarios" [value]="item.id_usuario">
+        {{ item.nombre }}
+      </option>
+    </select>
+  </div>
+  <!-- Libro -->
+  <div class="col-md-6">
+    <label for="id_libros" class="form-label fw-semibold">Libro</label>
+    <select
+      id="id_libros"
+      name="id_libros"
+      [(ngModel)]="prestamo.id_libros"
+      class="form-select"
+      required
+    >
+      <option disabled selected value="">Seleccione un libro</option>
+      <option *ngFor="let item of listaDisponible" [value]="item.id_libros">
+        {{ item.titulo }}
+      </option>
+    </select>
+  </div>
+
+
+  <!-- Botón -->
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary w-100">Registrar Préstamo</button>
+  </div>
+
+</form>

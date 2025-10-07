@@ -1,0 +1,45 @@
+<form (ngSubmit)="guardarUsuario()" #usuarioForm="ngForm" class="p-4">
+
+  <label>Nombre completo</label>
+  <input
+    type="text"
+    name="nombre"
+    [(ngModel)]="usuario.nombre"
+    required
+    placeholder="Ej: Juan Pérez"
+    class="form-control"
+  />
+
+  <label>Correo electrónico</label>
+  <input
+    type="email"
+    name="correo_electronico"
+    [(ngModel)]="usuario.correo_electronico"
+    required
+    placeholder="ejemplo@correo.com"
+    class="form-control"
+  />
+
+  <label>Teléfono</label>
+  <input
+    type="tel"
+    name="telefono"
+    [(ngModel)]="usuario.telefono"
+    required
+    placeholder="Ej: 3214567890"
+    class="form-control"
+  />
+
+  <label>Estado</label>
+  <select
+    name="estado"
+    [(ngModel)]="usuario.estado"
+    required
+    class="form-select"
+  >
+    <option [ngValue]="1">Activo</option>
+    <option [ngValue]="0">Inactivo</option>
+  </select>
+
+  <button type="submit" class="btn btn-primary mt-3">Guardar Usuario</button>
+</form>
